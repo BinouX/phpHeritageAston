@@ -107,10 +107,11 @@ class Access
     /**
      * @param $fields
      * @param $table
+     * @param $clause
      * @return bool
      */
-    public function select($fields, $table){
-$query="SELECT ".$fields." FROM `".$table."`;";
+    public function select($fields, $table,$clause){
+$query="SELECT ".$fields." FROM `".$table."` WHERE `".$clause."`;";
 return $this->exec_query($query);
 }
 
