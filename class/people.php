@@ -4,7 +4,7 @@
     private $_firstname = "";
     private $_lastname ="";
     private $_type="";
-    private $comment = new Comment();
+    private $comment;
 
       /**
        * @return string
@@ -12,6 +12,22 @@
       public function getType()
       {
           return $this->_type;
+      }
+
+      /**
+       * @return mixed
+       */
+      public function getComment()
+      {
+          return $this->comment;
+      }
+
+      /**
+       * @param mixed $comment
+       */
+      public function setComment($comment)
+      {
+          $this->comment=new Comment($comment);
       }
 
       /**
