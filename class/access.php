@@ -2,17 +2,29 @@
 
 /**
  * Created by PhpStorm.
- * User: michel
+ * User: Aldeguer Thomas
  * Date: 05/01/2017
  * Time: 14:25
  */
 class access
 {
 
-private $servername = "";
-private $username = "root";
-private $password = "root";
-private $dbname = "";
+    /**
+     * @var string
+     */
+    private $servername = "";
+    /**
+     * @var string
+     */
+    private $username = "root";
+    /**
+     * @var string
+     */
+    private $password = "root";
+    /**
+     * @var string
+     */
+    private $dbname = "";
 
     /**
      * @param $query
@@ -21,6 +33,9 @@ private $dbname = "";
 
     }
 
+    /**
+     * @param $query
+     */
     public function fetch($query){
 
     }
@@ -39,6 +54,10 @@ private $dbname = "";
         return new PDO($dsn, $this->getUsername(), $this->getPassword(), $opt);
     }
 
+    /**
+     * @param $query
+     * @return bool
+     */
     function exec_query($query){
 
         try{
@@ -50,20 +69,37 @@ private $dbname = "";
         }
 }
 
-public function insert($table,$fields,$values){
+
+    /**
+     * @param $table
+     * @param $fields
+     * @param $values
+     * @return bool
+     */
+    public function insert($table, $fields, $values){
         $query="INSERT INTO ".$table." (".$fields.") VALUES (".$values.");";
         return $this->exec_query($query);
 }
 
-
-public function delete()
+    /**
+     * @param $table
+     * @param $field
+     * @param $fieldvalue
+     * @return bool
+     */
+    public function delete($table, $field, $fieldvalue)
 {
-
+    $query = "DELETE FROM `".$table."` WHERE `".$field."` = ".$fieldvalue." ;";
+    return $this->exec_query($query);
 }
-public function update(){
 
-}
-public function select($fields,$table){
+
+    /**
+     * @param $fields
+     * @param $table
+     * @return bool
+     */
+    public function select($fields, $table){
 $query="SELECT ".$fields." FROM `".$table."`;";
 return $this->exec_query($query);
 }
