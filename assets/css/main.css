@@ -94,3 +94,9 @@ button.light:hover {
   background: #ff6644;
   color: #fff;
 }
+#panel {
+  background-color: rgba(217, 235, 215, 0.67);
+  width: 100%;
+  height: auto;
+  padding: 20px;
+}
