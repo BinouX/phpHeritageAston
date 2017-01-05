@@ -2,7 +2,6 @@
   include 'comment.php';
   include 'access.php';
 
-  private $comment = new Comment();
 
   class Note {
     private $_note = 0;
