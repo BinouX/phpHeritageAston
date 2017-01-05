@@ -2,6 +2,6 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="../aston/assets/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="../phpHeritageAston/assets/css/main.css" />
     </head>
     <body>
