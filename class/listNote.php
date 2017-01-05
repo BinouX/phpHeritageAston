@@ -2,9 +2,10 @@
   include 'note.php';
   include 'comment.php';
   include 'student.php';
+  //mod Thomas Aldeguer
 
   class listNote{
-    private $student = new Student();
+    private $student;
     private $_listNote = array();
 
     /**
@@ -24,10 +25,9 @@
      *
      * @return self
      */
-    public function setStudent($student)
+    public function setStudent($first,$last)
     {
-        $this->student = $student;
-
+        $this->student=new Student($first,$last,'student');
         return $this;
     }
 
