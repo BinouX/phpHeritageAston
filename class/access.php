@@ -87,7 +87,7 @@ class Access
      * exemple xx.insert('nom_de_la_table','champ1,champ2,...','".$valeu_champ1.","$valeur_chmap2"')
      */
     public function insert($table, $fields, $values){
-        $query="INSERT INTO ".$table." (".$fields.") VALUES (".$values.");";
+        $query="INSERT INTO ".$table." (".$fields.") VALUES (".$values.")";
         return $this->exec_query($query);
 }
 
@@ -98,10 +98,10 @@ class Access
      * @return bool
      */
     public function delete($table, $field, $fieldvalue)
-{
-    $query = "DELETE FROM `".$table."` WHERE `".$field."` = ".$fieldvalue." ;";
-    return $this->exec_query($query);
-}
+    {
+        $query = "DELETE FROM `".$table."` WHERE `".$field."` = ".$fieldvalue." ;";
+        return $this->exec_query($query);
+    }
 
 
     /**
@@ -111,9 +111,9 @@ class Access
      * @return bool
      */
     public function select($fields, $table,$clause){
-$query="SELECT ".$fields." FROM `".$table."` WHERE `".$clause."`;";
-return $this->exec_query($query);
-}
+      $query="SELECT ".$fields." FROM `".$table."` WHERE `".$clause."`;";
+      return $this->exec_query($query);
+    }
 
 
 
