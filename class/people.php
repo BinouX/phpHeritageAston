@@ -3,7 +3,24 @@
   class People{
     private $_firstname = "";
     private $_lastname ="";
+    private $_type="";
     private $comment = new Comment();
+
+      /**
+       * @return string
+       */
+      public function getType()
+      {
+          return $this->_type;
+      }
+
+      /**
+       * @param string $type
+       */
+      public function setType($type)
+      {
+          $this->_type = $type;
+      }
     /**
      * Get the value of Firstname
      *
