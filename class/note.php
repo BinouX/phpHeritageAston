@@ -5,7 +5,7 @@
     private $_note = 0;
     private $_coef = 1;
     private $_id_etudiant = null;
-    private $comment = new Comment();
+    private $comment;
 
 
     
@@ -94,7 +94,8 @@
      */
     public function setComment($comment)
     {
-        $this->comment = $comment;
+        $this->comment = new Comment();
+        $this->comment->setComment($comment)
 
         return $this;
     }
