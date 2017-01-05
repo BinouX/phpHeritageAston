@@ -1,12 +1,33 @@
 <?php
   include 'comment.php';
+  include 'access.php';
   class Note {
     private $_note = 0;
     private $_coef = 1;
+    private $_id_etudiant = null;
     private $comment = new Comment();
 
 
+    
+	/**
+     * Get the value of Id_etudiant
+     *
+     * @return mixed
+     */
+	 public function get_id_etudiant(){
+		return $this->_id_etudiant;
+	}
     /**
+     * Set the value of Id_etudiant
+     *
+     * @param mixed _id_etudiant
+     *
+     * @return self
+     */
+	public function set_id_etudiant($_id_etudiant){
+		$this->_id_etudiant = $_id_etudiant;
+	}
+	/**
      * Get the value of Note
      *
      * @return mixed
@@ -80,26 +101,8 @@
 	
 	public function addNoteBdd()
 	{
-		$servername = "localhost";
-$username = "username";
-$password = "password";
-$dbname = "myDBPDO";
-
-try {
-    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-    // set the PDO error mode to exception
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $sql = "INSERT INTO MyGuests (firstname, lastname, email)
-    VALUES ('John', 'Doe', 'john@example.com')";
-    // use exec() because no results are returned
-    $conn->exec($sql);
-    echo "New record created successfully";
-    }
-	catch(PDOException $e)
-    {
-    echo $sql . "<br>" . $e->getMessage();
-    }
-	$conn = null;
+		$access = new Acces();
+		$access->new_cnx();
+		$access->exec_query("INSERT INTO `aston_note` (`id_note`, `note_note`, `com_note`, `coef_note`, `id_personne`) VALUES (NULL, '".$this->_note."', '".$this._comment."', '".$this._note`."', '".$this._id_etudiant."');");
 	}
-}
  ?>
