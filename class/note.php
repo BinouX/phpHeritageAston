@@ -2,8 +2,6 @@
   include 'comment.php';
   include 'access.php';
 
-  private $comment = new Comment();
-
   class Note {
     private $_note = 0;
     private $_coef = 1;
@@ -100,9 +98,7 @@
     public function setComment($comment)
     {
         $this->comment = new Comment();
-        $this->comment->setComment($comment)
-
-        return $this;
+        $this->comment->setComment($comment);
     }
 	
 	/**
