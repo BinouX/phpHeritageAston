@@ -71,6 +71,15 @@ class Access
 
 
     /**
+     * @param $string
+     * @return string
+     */
+    public function hash($string){
+       return md5($string);
+    }
+
+
+    /**
      * @param $table
      * @param $fields
      * @param $values
