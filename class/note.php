@@ -103,6 +103,6 @@
 	{
 		$access = new Acces();
 		$access->new_cnx();
-		$access->exec_query("INSERT INTO `aston_note` (`id_note`, `note_note`, `com_note`, `coef_note`, `id_personne`) VALUES (NULL, '".$this->_note."', '".$this._comment."', '".$this._note`."', '".$this._id_etudiant."');");
+		$access->insert("`aston_note`","(`id_note`, `note_note`, `com_note`, `coef_note`, `id_personne`)","(NULL, '".$this->_note."', '".$this._comment."', '".$this._note`."', '".$this._id_etudiant."');");
 	}
  ?>
