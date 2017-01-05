@@ -1,14 +1,19 @@
 <?php
   include 'comment.php';
   include 'access.php';
+
+  private $comment = new Comment();
+
   class Note {
     private $_note = 0;
     private $_coef = 1;
     private $_id_etudiant = null;
+
     private $comment;
 
-
-    
+    public function __construct() {
+        print "In NoteClass constructor\n";
+    }
 	/**
      * Get the value of Id_etudiant
      *
@@ -109,6 +114,12 @@
 	{
 		$access = new Acces();
 		$access->new_cnx();
-		$access->insert("`aston_note`","(`id_note`, `note_note`, `com_note`, `coef_note`, `id_personne`)","(NULL, '".$this->_note."', '".$this._comment."', '".$this._note`."', '".$this._id_etudiant."');");
+		$field = "(`id_note`, `note_note`, `com_note`, `coef_note`, `id_personne`)";
+        $values = "(NULL,'".$this->_note."','".$this->_comment."','".$this->_note."','".$this._id_etudiant."')";
+        $access->insert("aston_note",$field,$values);
 	}
+}
+printf("toto"); 
+new Note(); //    $comment
+
  ?>
