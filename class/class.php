@@ -8,10 +8,10 @@
 
   class Classe{
     private $_name ="";
-    private $_delegate1 = new Student();
-    private $_delegate2 = new Student();
-    private $_teacher = new Teacher();
-    private $comment = new Comment();
+    private $_delegate1;
+    private $_delegate2;
+    private $_teacher;
+    private $comment;
 
 
     /**
@@ -55,6 +55,7 @@
      */
     public function setDelegate1($first,$last)
     {
+        $this->_delegate1=new Student();
         $this->_delegate1->setFirstname($first);
         $this->_delegate1->setLastname($last);
         $this->_delegate1->setType('student');
@@ -79,6 +80,7 @@
      */
     public function setDelegate2($first,$last)
     {
+        $this->_delegate2=new Student();
         $this->_delegate2->setFirstname($first);
         $this->_delegate2->setLastname($last);
         $this->_delegate2->setType('student');
@@ -103,6 +105,7 @@
      */
     public function setTeacher($type,$first,$last)
     {
+        $this->_teacher=new Teacher();
         $this->_teacher->setFirstname($first);
         $this->_teacher->setLastname($last);
         $this->_teacher->setType('teacher');
