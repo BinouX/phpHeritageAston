@@ -14,10 +14,6 @@ private $username = "root";
 private $password = "root";
 private $dbname = "";
 
-
-
-
-
     /**
      * @param $query
      */
@@ -43,7 +39,7 @@ private $dbname = "";
         return new PDO($dsn, $this->getUsername(), $this->getPassword(), $opt);
     }
 
-    public function exec_query($query){
+    function exec_query($query){
 
         try{
             $cnx = $this->new_cnx();
@@ -52,6 +48,24 @@ private $dbname = "";
         }catch(PDOException  $e ){
             echo "Error: ".$e;
         }
+}
+
+public function insert($table,$fields,$values){
+        $query="INSERT INTO ".$table." (".$fields.") VALUES (".$values.");";
+        return $this->exec_query($query);
+}
+
+
+public function delete()
+{
+
+}
+public function update(){
+
+}
+public function select($fields,$table){
+$query="SELECT ".$fields." FROM `".$table."`;";
+return $this->exec_query($query);
 }
 
 
