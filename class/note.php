@@ -100,9 +100,8 @@
     public function setComment($comment)
     {
         $this->comment = new Comment();
-        $this->comment->setComment($comment)
+        $this->comment->setComment($comment);
 
-        return $this;
     }
 	
 	/**
