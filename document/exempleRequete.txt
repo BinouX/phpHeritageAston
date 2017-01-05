@@ -1,0 +1,14 @@
+INSERT INTO `aston_administrator` (`id_administrator`, `firstname_administrator`, `lastename_administrator`) VALUES (NULL, 'admin_toto', 'admin_tata'); 
+INSERT INTO `aston_classe` (`id_classe`, `name_classe`, `com_classe`, `delegue1_classe`, `delegue2_classe`) VALUES (NULL, 'grande_section', 'jeunes enfant de 5 a 6 ans', NULL, NULL); 
+
+
+INSERT INTO `aston_dater` (`date_dater`, `id_administrator`, `id_note`) VALUES (NULL, '1', '2'); 
+INSERT INTO `aston_enseigner` (`id_teacher`, `id_classe`) VALUES ('1', '1'); 
+INSERT INTO `aston_note` (`id_note`, `note_note`, `com_note`, `coef_note`, `id_personne`) VALUES (NULL, '10', 'commentaire note', '1', '1'); 
+INSERT INTO `aston_student` (`id_personne`, `firstname_student`, `lastname_student`, `id_classe`) VALUES (NULL, 'eleve_eleve1', 'eleve_nom1', '1'); 
+INSERT INTO `aston_teacher` (`id_teacher`, `firstname_teacher`, `lastname_teacher`) VALUES (NULL, 'prof_toto', 'prof_tata') 
+
+SELECT * FROM `aston_commenter` 
+SELECT * FROM `aston_commentaire_classe` 
+
+DELETE FROM `aston_note` WHERE `aston_note`.`id_note` = 2
