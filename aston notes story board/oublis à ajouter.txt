@@ -1,0 +1,3 @@
+page home connect => si admin se co , ajouter un bouton "ajout élève/professeur"
+
+page élève note => ajouter le bouton "ajouter note" qui mène donc à la page ajout de note.
