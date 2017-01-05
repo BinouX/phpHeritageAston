@@ -99,6 +99,11 @@
         return $this;
     }
 	
+	/**
+     * Add a note in the table aston_note
+     *
+     * @return mixed
+     */
 	public function addNoteBdd()
 	{
 		$access = new Acces();
