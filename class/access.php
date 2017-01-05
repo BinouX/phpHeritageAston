@@ -12,7 +12,7 @@ class Access
     /**
      * @var string
      */
-    private $servername = "";
+    private $servername = "localhost";
     /**
      * @var string
      */
@@ -24,7 +24,7 @@ class Access
     /**
      * @var string
      */
-    private $dbname = "";
+    private $dbname = "noteaston";
 
     /**
      * @param $query
@@ -45,7 +45,7 @@ class Access
      */
     function new_cnx(){
 
-        $dsn = "mysql:host=$this->getServername();dbname=$this->getDbname()";
+        $dsn = "mysql:host=".$this->getServername().";dbname=".$this->getDbname()."";
         $opt = [
             PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
             PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,

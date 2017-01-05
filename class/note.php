@@ -9,9 +9,10 @@
     private $_coef = 1;
     private $_id_etudiant = null;
 
+    private $comment;
 
     public function __construct() {
-        print "In BaseClass constructor\n";
+        print "In NoteClass constructor\n";
     }
 	/**
      * Get the value of Id_etudiant
@@ -98,7 +99,8 @@
      */
     public function setComment($comment)
     {
-        $this->comment = $comment;
+        $this->comment = new Comment();
+        $this->comment->setComment($comment)
 
         return $this;
     }

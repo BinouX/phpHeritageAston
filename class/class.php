@@ -1,14 +1,17 @@
 <?php
+
+/**mod Thomas Aldeguer**/
+
   include 'student.php';
   include 'teacher.php';
   include 'comment.php';
 
   class Classe{
     private $_name ="";
-    private $_delegate1 = new Student();
-    private $_delegate2 = new Student();
-    private $_teacher = new Teacher();
-    private $comment = new Comment();
+    private $_delegate1;
+    private $_delegate2;
+    private $_teacher;
+    private $comment;
 
 
     /**
@@ -31,8 +34,6 @@
     public function setName($_name)
     {
         $this->_name = $_name;
-
-        return $this;
     }
 
     /**
@@ -52,11 +53,12 @@
      *
      * @return self
      */
-    public function setDelegate1($_delegate1)
+    public function setDelegate1($first,$last)
     {
-        $this->_delegate1 = $_delegate1;
-
-        return $this;
+        $this->_delegate1=new Student();
+        $this->_delegate1->setFirstname($first);
+        $this->_delegate1->setLastname($last);
+        $this->_delegate1->setType('student');
     }
 
     /**
@@ -76,11 +78,12 @@
      *
      * @return self
      */
-    public function setDelegate2($_delegate2)
+    public function setDelegate2($first,$last)
     {
-        $this->_delegate2 = $_delegate2;
-
-        return $this;
+        $this->_delegate2=new Student();
+        $this->_delegate2->setFirstname($first);
+        $this->_delegate2->setLastname($last);
+        $this->_delegate2->setType('student');
     }
 
     /**
@@ -100,11 +103,12 @@
      *
      * @return self
      */
-    public function setTeacher($_teacher)
+    public function setTeacher($first,$last)
     {
-        $this->_teacher = $_teacher;
-
-        return $this;
+        $this->_teacher=new Teacher();
+        $this->_teacher->setFirstname($first);
+        $this->_teacher->setLastname($last);
+        $this->_teacher->setType('teacher');
     }
 
 
@@ -127,9 +131,7 @@
      */
     public function setComment($comment)
     {
-        $this->comment = $comment;
-
-        return $this;
+        $this->comment->setComment($comment);
     }
 
 }
