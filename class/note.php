@@ -112,7 +112,7 @@
      */
 	public function addNoteBdd()
 	{
-		$access = new Acces();
+		$access = new Access();
 		$access->new_cnx();
 		$field = "(`id_note`, `note_note`, `com_note`, `coef_note`, `id_personne`)";
         $values = "(NULL,'".$this->_note."','".$this->_comment."','".$this->_note."','".$this._id_etudiant."')";
