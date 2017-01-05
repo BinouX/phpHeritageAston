@@ -75,6 +75,7 @@ class access
      * @param $fields
      * @param $values
      * @return bool
+     * exemple xx.insert('nom_de_la_table','champ1,champ2,...','".$valeu_champ1.","$valeur_chmap2"')
      */
     public function insert($table, $fields, $values){
         $query="INSERT INTO ".$table." (".$fields.") VALUES (".$values.");";
