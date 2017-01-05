@@ -103,7 +103,7 @@
      *
      * @return self
      */
-    public function setTeacher($type,$first,$last)
+    public function setTeacher($first,$last)
     {
         $this->_teacher=new Teacher();
         $this->_teacher->setFirstname($first);
