@@ -38,7 +38,7 @@ $lastname = 'Verquin';
             </table>
         </div>
         
-            <?php if(isset($selectedClass)): ?>
+            <?php if(!isset($selectedClass)): ?>
                 <div class="classNoSelect">
                     <h1>Selectionnez votre classe</h1>
                 </div>
@@ -46,6 +46,14 @@ $lastname = 'Verquin';
             <?php else: ?>
                 <div class="classSelect">
                     <h1>Classe : $classe a mettre</h1>
+                    <?php
+                        $stmt = new Access();
+                        $stmt->new_cnx();
+                        $stmt->select_all('id_administrator', 'aston_administrator');
+                        echo '<pre>';
+                        var_dump($stmt);
+                        echo '</pre>';
+                    ?>
                     
                 </div>
             <?php endif; ?>
