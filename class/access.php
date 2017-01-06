@@ -62,13 +62,12 @@ class Access
 
         try{
             $cnx = $this->new_cnx();
-            $q=$cnx->prepare($query);
-            $a=  $q->execute();
-            return $a->fetchAll()
+            $q=$cnx->query($query);
+            return $q;
         }catch(PDOException  $e ){
             echo "Error: ".$e;
         }
-}
+      }
 
     function exec_query($query){
 
@@ -128,6 +127,7 @@ class Access
     }
 
     public function select_all($fields, $table){
+      $this->new_cnx();
         $query="SELECT ".$fields." FROM `".$table.";";
         return $this->fetch_query($query);
     }
