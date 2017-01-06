@@ -4,7 +4,9 @@
   $_access = new Access();
   $_comment = new Comment($_access);
 
-  $_comment->addCommentTOBdd("burk php", "note" , 5);
+  //$_comment->addCommentTOBdd("burk php", "note" , 5);
+
+  $_comment->getCommentById();
 
   class Comment{
     private $_comment ="";
@@ -74,8 +76,18 @@
       $this->_access->insert($table,$fields,$values);
     }
 
-    public function getCommentFromBdd(){
-      
+    public function getCommentById(){
+      $table = "aston_commentaire";
+      $fields = "id,comment, aston_classe_id, aston_note_id, aston_student_id, aston_listnote_id";
+      $clause = "id = 4";
+
+      $this->_access->new_cnx();
+      $req = $this->_access->select($fields,$table,$clause);
+
+      while($data = mysql_fetch_assoc($req))
+      {
+        echo $data['comment'].' '.$data['id'];
+      }
     }
 
 }
