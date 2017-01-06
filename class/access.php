@@ -58,6 +58,18 @@ class Access
      * @param $query
      * @return bool
      */
+    function fetch_query($query){
+
+        try{
+            $cnx = $this->new_cnx();
+            $q=$cnx->prepare($query);
+            $a=  $q->execute();
+            return $a->fetchAll()
+        }catch(PDOException  $e ){
+            echo "Error: ".$e;
+        }
+}
+
     function exec_query($query){
 
         try{
@@ -67,7 +79,7 @@ class Access
         }catch(PDOException  $e ){
             echo "Error: ".$e;
         }
-}
+    }
 
 
     /**
@@ -112,12 +124,12 @@ class Access
      */
     public function select($fields, $table,$clause){
       $query="SELECT ".$fields." FROM ".$table." WHERE ".$clause."";
-      return $this->exec_query($query);
+      return $this->fetch_query($query);
     }
 
     public function select_all($fields, $table){
         $query="SELECT ".$fields." FROM `".$table.";";
-        return $this->exec_query($query);
+        return $this->fetch_query($query);
     }
 
     public function update(){
