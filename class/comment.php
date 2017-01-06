@@ -1,5 +1,5 @@
 <?php
-  include "./access.php";
+  include "access.php";
 
   $_access = new Access();
   $_comment = new Comment($_access);
