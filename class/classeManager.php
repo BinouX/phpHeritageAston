@@ -39,6 +39,7 @@ class classeManager
         $fields="name_classe,delegate1_classe,delegate2_classe,com_classe";
         $values="".$nom.",".$deleg1.",".$deleg2.",".$com."";
         $access->insert($table,$fields,$values);
+        //i love les roux
     }
 
 
