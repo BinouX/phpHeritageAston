@@ -74,6 +74,7 @@ class Access
 
         try{
             $cnx = $this->new_cnx();
+            printf("</br>".$query."</br>");
             $q=$cnx->prepare($query);
             return $q->execute();
         }catch(PDOException  $e ){
@@ -101,7 +102,7 @@ class Access
     public function insert($table, $fields, $values){
         $query="INSERT INTO ".$table." (".$fields.") VALUES (".$values.")";
         return $this->exec_query($query);
-}
+    }
 
     /**
      * @param $table

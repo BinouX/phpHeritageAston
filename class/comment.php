@@ -1,4 +1,3 @@
-
 <?php
   include "access.php";
 
@@ -40,34 +39,7 @@
         return $this->_comment;
     }
 
-    /**
-     * Set the value of Comment
-     *
-     * @param mixed _comment
-     *
-     * @return self
-     */
-    public function setComment($_comment)
-    {
-        $this->_comment = $_comment;
 
-        return $this;
-    }
-
-    public function addCommentToBdd($comment, $styleComment, $id){
-      $this->setComment($comment);
-      $classId = NULL; $noteId = NULL; $studentId= NULL; $listnoteId=NULL;
-
-      if($styleComment == 'classe'){
-        $classId = $id;
-      }else if($styleComment == 'note'){
-        $noteId = $id;
-      }else if($styleComment == 'student'){
-        $studentId = $id;
-      }else {
-        $listnoteId = $id;
-
-      }
 
       /**
        * Set the value of Comment
