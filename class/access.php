@@ -115,6 +115,16 @@ class Access
       return $this->exec_query($query);
     }
 
+    public function select_all($fields, $table){
+        $query="SELECT ".$fields." FROM `".$table.";";
+        return $this->exec_query($query);
+    }
+
+    public function update(){
+        $query="";
+        return $this->exec_query($query);
+    }
+
 
 
     /**
