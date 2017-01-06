@@ -29,7 +29,6 @@
     //$connexion=new access();
     //$connexion->new_cnx();
     //  $resultCo=$connexion->select("*","aston_administrator",$lala,$user);
-      // fait par laurine :-) MERCI LA BELLE CLASS ACCESS DE THOMAS !!
     $db='aston';
     $host='localhost';
     $dsn = 'mysql:dbname='.$db.';host='.$host;
