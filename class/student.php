@@ -1,7 +1,7 @@
 <?php
-  include 'people.php';
 
-  class Student extends People{
+include 'people.php';
+  class Student extends People {
     private $_classe = "";
 
      public function __construct($firstname,$lastname,$password){
