@@ -5,6 +5,7 @@
   include 'student.php';
   include 'teacher.php';
   include 'comment.php';
+  include 'access.php';
 
   class Classe{
     private $_name ="";
@@ -12,6 +13,7 @@
     private $_delegate2;
     private $_teacher;
     private $comment;
+
 
 
     /**
@@ -133,6 +135,7 @@
     {
         $this->comment->setComment($comment);
     }
+
 
 }
  ?>
