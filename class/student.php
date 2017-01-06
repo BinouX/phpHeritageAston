@@ -16,5 +16,6 @@ include 'people.php';
 		$this->_classe = $_classe;
 	}
   }
+  //toto
   	
  ?>
