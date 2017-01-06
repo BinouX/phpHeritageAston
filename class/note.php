@@ -1,5 +1,4 @@
 <?php
-  include 'comment.php';
   include 'access.php';
 
 
@@ -8,10 +7,14 @@
     private $_coef = 1;
     private $_id_etudiant = null;
 
-    private $comment;
+    private $_comment;
 
-    public function __construct() {
-        print "In NoteClass constructor\n";
+    public function __construct($note,$coef,$id_etudiant,$comment) {
+        $this->_note = $note;
+        $this->_coef = $coef;
+        $this->_id_etudiant = $id_etudiant;
+        $this->comment = $comment;
+
     }
 	/**
      * Get the value of Id_etudiant
@@ -98,8 +101,7 @@
      */
     public function setComment($comment)
     {
-        $this->comment = new Comment();
-        $this->comment->setComment($comment);
+        $this->_comment = $comment;
 
     }
 	
@@ -112,12 +114,12 @@
 	{
 		$access = new Access();
 		$access->new_cnx();
-		$field = "(`id_note`, `note_note`, `com_note`, `coef_note`, `id_personne`)";
-        $values = "(NULL,'".$this->_note."','".$this->_comment."','".$this->_note."','".$this._id_etudiant."')";
+		$field = "`id_note`, `note_note`, `com_note`, `coef_note`, `id_personne`";
+        $values = "(NULL,'".$this->_note."','".$this->_comment."','".$this->_note."','".$this->_id_etudiant."')";
         $access->insert("aston_note",$field,$values);
 	}
 }
-printf("toto"); 
-new Note(); //    $comment
-
+    $note = new Note(10,1,1,"Correct");
+    print_r($note);
+    $note->addNoteBdd();
  ?>

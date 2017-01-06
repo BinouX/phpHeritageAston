@@ -67,7 +67,7 @@ class Access
         }catch(PDOException  $e ){
             echo "Error: ".$e;
         }
-}
+    }
 
 
     /**
@@ -89,7 +89,7 @@ class Access
     public function insert($table, $fields, $values){
         $query="INSERT INTO ".$table." (".$fields.") VALUES (".$values.")";
         return $this->exec_query($query);
-}
+    }
 
     /**
      * @param $table

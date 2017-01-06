@@ -1,13 +1,6 @@
 <?php
   include "./access.php";
 
-  $_access = new Access();
-  $_comment = new Comment($_access);
-
-  //$_comment->addCommentTOBdd("God is here", "student" , 5);
-
-  $_comment->getCommentById();
-
   class Comment{
     private $_comment ="";
     private $_access ="";
@@ -31,7 +24,6 @@
      public function setAccess($_access)
      {
          $this->_access = $_access;
-         return $this;
      }
 
     public function getComment()
