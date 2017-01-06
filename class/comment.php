@@ -4,7 +4,7 @@
   $_access = new Access();
   $_comment = new Comment($_access);
 
-  //$_comment->addCommentTOBdd("burk php", "note" , 5);
+  //$_comment->addCommentTOBdd("God is here", "student" , 5);
 
   $_comment->getCommentById();
 
@@ -84,7 +84,7 @@
       $this->_access->new_cnx();
       $req = $this->_access->select($fields,$table,$clause);
 
-      while($data = mysql_fetch_assoc($req))
+      while($data = mysql_fetch_row($req))
       {
         echo $data['comment'].' '.$data['id'];
       }
