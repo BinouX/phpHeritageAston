@@ -1,5 +1,6 @@
 <?php
   include 'people.php';
+  include 'student.php';
 
   class Admin extends People{
       public function addStudent($student){
@@ -17,6 +18,9 @@
         $access->insert("aston_teacher",$fields,$values);
       }
   }
+
+  $admin = new Admin();
+  $student = new Student("firstname_toto","lastname_toto","password_toto");
 
 
  ?>
