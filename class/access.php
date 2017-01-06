@@ -24,7 +24,7 @@ class Access
     /**
      * @var string
      */
-    private $dbname = "noteaston";
+    private $dbname = "aston";
 
     /**
      * @param $query
@@ -68,6 +68,7 @@ class Access
             echo "Error: ".$e;
         }
       }
+
 
     function exec_query($query){
 

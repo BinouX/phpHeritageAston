@@ -1,14 +1,58 @@
+
 <?php include 'includes/head.php';?>
 <?php include 'includes/header.php';?>
+<?php include 'class/classe.php';?>
+<?php 
+//Variable temporaire
+$idprof = 1;
+$firstname = 'Alexis';
+$lastname = 'Verquin';
+
+
+
+?>
+
 <section id="home">
     
-        <center>
+       
      <div id="panel">
-            <H1>Panel Administration</H1>
-            <H2>Veuillez vous connecter pour accéder aux nots</H2>
+        <div class="classe">
+            <h2>Vos Classe : </h2>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Classe</td>
+                        <td>Nombres eleves</td>
+                        <td>Date relevé de notes</td>
+                        <td>Acces</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>DEV9</td>
+                        <td>19</td>
+                        <td>19/01/2017</td>
+                        <td><button type="submit" class="btn-tab" id="valid" name="valid">Acceder au detail</button></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
+        
+            <?php if(isset($selectedClass)): ?>
+                <div class="classNoSelect">
+                    <h1>Selectionnez votre classe</h1>
+                </div>
+                
+            <?php else: ?>
+                <div class="classSelect">
+                    <h1>Classe : $classe a mettre</h1>
+                    
+                </div>
+            <?php endif; ?>
+        
+    </div>
     
-        </center>
+       
 
        
     
