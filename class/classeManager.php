@@ -13,7 +13,11 @@ class classeManager
 {
 
 
-
+    /** renvoie le resultat de la requête sur un etudiant
+     * @param $fields
+     * @param $clause
+     * @return bool
+     */
     public function select_one($fields,$clause){
         $access = new Access();
         $access->new_cnx();
@@ -21,6 +25,10 @@ class classeManager
         return $access->select($fields,$table,$clause);
     }
 
+    /** Renvoie tout les etudiants
+     * @param $fields
+     * @return bool
+     */
     public function select_all($fields){
         $access = new Access();
         $access->new_cnx();
@@ -28,6 +36,10 @@ class classeManager
         return $access->select_all($fields,$table);
     }
 
+    /** Insert un etudiant dans une classe
+     * @param $classe
+     * @param string $com
+     */
     public function insert($classe,$com=" "){
         $m = new studentManager();
         $access = new Access();
