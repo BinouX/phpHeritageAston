@@ -4,6 +4,7 @@
     private $_firstname = "";
     private $_lastname ="";
     private $_type="";
+    private $_password="";
     private $comment;
 
       /**
@@ -83,6 +84,16 @@
         $this->_lastname = $_lastname;
 
         return $this;
+    }
+
+    public function getPassword()
+    {
+      return $this->_password;
+    }
+
+    public function setPassword($_password)
+    {
+      $this->_password = $_password;
     }
 
 }
