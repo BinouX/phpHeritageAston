@@ -7,6 +7,13 @@
     private $_password="";
     private $comment;
 
+      public function People($_firstname='', $_lastname='', $_password='')
+      {
+        $this->_firstname = $_firstname;
+        $this->_lastname = $_lastname;
+        $this->_password = $_password;
+      }
+  
       /**
        * @return string
        */
@@ -98,3 +105,5 @@
 
 }
  ?>
+
+

@@ -1,7 +1,12 @@
 <?php
+  include 'people.php';
 
   class Student extends People{
     private $_classe = "";
+
+     public function __construct($firstname,$lastname,$password){
+     	People::__construct($firstname,$lastname,$password);
+     }
       
       public function getClasse(){
 		return $this->_classe;

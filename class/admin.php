@@ -1,5 +1,4 @@
 <?php
-  include 'people.php';
   include 'student.php';
 
   class Admin extends People{
@@ -7,7 +6,7 @@
       	$access = new Access();
 		$access->new_cnx();
 		$fields = "`id_personne`, `firstname_student`, `lastname_student`, `password_student`,`id_classe`";
-        $values = "NULL, '".$student->getFirstname()."', '".$student->getLastname()."', '".$student->getPassword()."', '".$student->getIdClasse()."'";
+        $values = "NULL, '".$student->getFirstname()."', '".$student->getLastname()."', '".$student->getPassword()."', '".$student->getClasse()."'";
         $access->insert("aston_student",$fields,$values);
       }
       public function addTeacher($teacher){
@@ -18,9 +17,5 @@
         $access->insert("aston_teacher",$fields,$values);
       }
   }
-
-  $admin = new Admin();
-  $student = new Student("firstname_toto","lastname_toto","password_toto");
-
 
  ?>
