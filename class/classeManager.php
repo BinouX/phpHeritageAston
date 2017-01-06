@@ -27,11 +27,16 @@ class classeManager
         return $access->select_all($fields,$table);
     }
 
-    public function insert($classe){
+    public function insert($classe,$com=" "){
         $access = new Access();
         $access->new_cnx();
         $table = 'classe';
-        
+        $nom=$classe->getName();
+        $deleg1=$classe->getDelegate1->getName();
+        $deleg2=$classe->getDelegate2->getName();
+        $fields="";
+        $values="".$nom.",".$deleg1.",".$deleg2.",".$com."";
+        $access->insert($table,$fields,$values);
     }
 
 

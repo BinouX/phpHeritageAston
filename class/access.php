@@ -58,6 +58,17 @@ class Access
      * @param $query
      * @return bool
      */
+    function fetch_query($query){
+
+        try{
+            $cnx = $this->new_cnx();
+            $q=$cnx->query($query);
+            return $q;
+        }catch(PDOException  $e ){
+            echo "Error: ".$e;
+        }
+      }
+
     function exec_query($query){
 
         try{
@@ -112,12 +123,13 @@ class Access
      */
     public function select($fields, $table,$clause){
       $query="SELECT ".$fields." FROM ".$table." WHERE ".$clause."";
-      return $this->exec_query($query);
+      return $this->fetch_query($query);
     }
 
     public function select_all($fields, $table){
+      $this->new_cnx();
         $query="SELECT ".$fields." FROM `".$table.";";
-        return $this->exec_query($query);
+        return $this->fetch_query($query);
     }
 
     public function update(){
@@ -189,6 +201,7 @@ class Access
     public function setDbname($dbname)
     {
         $this->dbname = $dbname;
+        //toto
     }
 
 
