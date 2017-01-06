@@ -1,4 +1,6 @@
 # phpHeritageAston
 Fabrice Forget
 Thomas Aldeguer
-Alexis 
+Alexis Verquin
+Laurine Thimothe
+Benjamin Liebaert
