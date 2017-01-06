@@ -1,8 +1,9 @@
+<?php include 'class/access.php';?>
 <?php include 'includes/head.php';?>
 <?php include 'includes/header.php';?>
 <section id="home">
     <center><div id="logo">
-        
+
     </div>
         <div id="titre">
             <form method="post">
@@ -17,3 +18,42 @@
 </section>
 <?php include 'includes/footer.php'; ?>
 <?php include 'includes/foot.php'; ?>
+
+<?php
+
+  if(isset($_POST["valid"])){
+
+    $user=$_POST["nom"];
+    $pass=$_POST["pass"];
+
+    //$connexion=new access();
+    //$connexion->new_cnx();
+    //  $resultCo=$connexion->select("*","aston_administrator",$lala,$user);
+    $db='aston';
+    $host='localhost';
+    $dsn = 'mysql:dbname='.$db.';host='.$host;
+    $userbdd= 'root';
+    $password = '';
+
+    try {
+        $dbh = new PDO($dsn, $userbdd, $password);
+    } catch (PDOException $e) {
+        echo 'Connexion échouée : ' . $e->getMessage();
+    }
+
+
+    $res = $dbh->query("SELECT * FROM aston_user WHERE lastname_user='".$user."'");
+
+    foreach($res as $data){
+      if($data['lastname_user'] == $user && $data['password'] == $pass){
+        session_start();
+        $_SESSION['statut'] = $data['statut_user'];
+        $_SESSION['nom'] = $data['lastname_user'];
+        $_SESSION['prenom'] = $data['firstname_user'];
+        header("Location: index.php");
+      }
+
+    };
+  }
+
+ ?>
