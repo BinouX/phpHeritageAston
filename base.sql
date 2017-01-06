@@ -24,7 +24,8 @@ CREATE TABLE aston_classe(
 CREATE TABLE aston_administrator(
         id_administrator        int (11) Auto_increment  NOT NULL ,
         firstname_administrator Varchar (25) NOT NULL ,
-        lastename_administrator Varchar (25) NOT NULL ,
+        lastname_administrator  Varchar (25) NOT NULL ,
+        password_administrator  Varchar (50) ,
         PRIMARY KEY (id_administrator )
 )ENGINE=InnoDB;
 
@@ -37,6 +38,7 @@ CREATE TABLE aston_teacher(
         id_teacher        int (11) Auto_increment  NOT NULL ,
         firstname_teacher Varchar (25) NOT NULL ,
         lastname_teacher  Varchar (25) NOT NULL ,
+        password_teacher  Varchar (50) ,
         PRIMARY KEY (id_teacher )
 )ENGINE=InnoDB;
 
@@ -49,6 +51,8 @@ CREATE TABLE aston_student(
         id_personne       int (11) Auto_increment  NOT NULL ,
         firstname_student Varchar (25) NOT NULL ,
         lastname_student  Varchar (25) NOT NULL ,
+        password_student  Varchar (50) ,
+        id_classe         Int ,
         PRIMARY KEY (id_personne )
 )ENGINE=InnoDB;
 
@@ -58,10 +62,11 @@ CREATE TABLE aston_student(
 #------------------------------------------------------------
 
 CREATE TABLE aston_note(
-        id_note   int (11) Auto_increment  NOT NULL ,
-        note_note Varchar (25) ,
-        com_note  Text ,
-        coef_note Int ,
+        id_note     int (11) Auto_increment  NOT NULL ,
+        note_note   Varchar (25) ,
+        com_note    Text ,
+        coef_note   Int ,
+        id_personne Int NOT NULL ,
         PRIMARY KEY (id_note )
 )ENGINE=InnoDB;
 
@@ -79,6 +84,21 @@ CREATE TABLE aston_commentaire_classe(
 
 
 #------------------------------------------------------------
+# Table: aston_commentaire
+#------------------------------------------------------------
+
+CREATE TABLE aston_commentaire(
+        commentaire_id    int (11) Auto_increment  NOT NULL ,
+        commentaire       Varchar (255) ,
+        aston_classe_id   Int ,
+        aston_note_id     Int ,
+        aston_student_id  Int ,
+        aston_listnote_id Int ,
+        PRIMARY KEY (commentaire_id )
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
 # Table: aston_enseigner
 #------------------------------------------------------------
 
@@ -86,29 +106,6 @@ CREATE TABLE aston_enseigner(
         id_teacher Int NOT NULL ,
         id_classe  Int NOT NULL ,
         PRIMARY KEY (id_teacher ,id_classe )
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: aston_etudier
-#------------------------------------------------------------
-
-CREATE TABLE aston_etudier(
-        id_personne Int NOT NULL ,
-        id_classe   Int NOT NULL ,
-        id_note     Int NOT NULL ,
-        PRIMARY KEY (id_personne ,id_classe ,id_note )
-)ENGINE=InnoDB;
-
-
-#------------------------------------------------------------
-# Table: aston_noter
-#------------------------------------------------------------
-
-CREATE TABLE aston_noter(
-        id_classe Int NOT NULL ,
-        id_note   Int NOT NULL ,
-        PRIMARY KEY (id_classe ,id_note )
 )ENGINE=InnoDB;
 
 
@@ -134,13 +131,10 @@ CREATE TABLE aston_dater(
         PRIMARY KEY (id_administrator ,id_note )
 )ENGINE=InnoDB;
 
+ALTER TABLE aston_student ADD CONSTRAINT FK_aston_student_id_classe FOREIGN KEY (id_classe) REFERENCES aston_classe(id_classe);
+ALTER TABLE aston_note ADD CONSTRAINT FK_aston_note_id_personne FOREIGN KEY (id_personne) REFERENCES aston_student(id_personne);
 ALTER TABLE aston_enseigner ADD CONSTRAINT FK_aston_enseigner_id_teacher FOREIGN KEY (id_teacher) REFERENCES aston_teacher(id_teacher);
 ALTER TABLE aston_enseigner ADD CONSTRAINT FK_aston_enseigner_id_classe FOREIGN KEY (id_classe) REFERENCES aston_classe(id_classe);
-ALTER TABLE aston_etudier ADD CONSTRAINT FK_aston_etudier_id_personne FOREIGN KEY (id_personne) REFERENCES aston_student(id_personne);
-ALTER TABLE aston_etudier ADD CONSTRAINT FK_aston_etudier_id_classe FOREIGN KEY (id_classe) REFERENCES aston_classe(id_classe);
-ALTER TABLE aston_etudier ADD CONSTRAINT FK_aston_etudier_id_note FOREIGN KEY (id_note) REFERENCES aston_note(id_note);
-ALTER TABLE aston_noter ADD CONSTRAINT FK_aston_noter_id_classe FOREIGN KEY (id_classe) REFERENCES aston_classe(id_classe);
-ALTER TABLE aston_noter ADD CONSTRAINT FK_aston_noter_id_note FOREIGN KEY (id_note) REFERENCES aston_note(id_note);
 ALTER TABLE aston_commenter ADD CONSTRAINT FK_aston_commenter_id_classe FOREIGN KEY (id_classe) REFERENCES aston_classe(id_classe);
 ALTER TABLE aston_commenter ADD CONSTRAINT FK_aston_commenter_id_commentaire FOREIGN KEY (id_commentaire) REFERENCES aston_commentaire_classe(id_commentaire);
 ALTER TABLE aston_dater ADD CONSTRAINT FK_aston_dater_id_administrator FOREIGN KEY (id_administrator) REFERENCES aston_administrator(id_administrator);

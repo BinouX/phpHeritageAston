@@ -83,11 +83,11 @@
 
       $this->_access->new_cnx();
       $req = $this->_access->select($fields,$table,$clause);
-
-      while($data = mysql_fetch_row($req))
+      var_dump($req);
+      /*foreach($req as $res)
       {
-        echo $data['comment'].' '.$data['id'];
-      }
+
+      }*/
     }
 
 }
