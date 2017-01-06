@@ -1,7 +1,7 @@
 
 <?php include 'includes/head.php';?>
 <?php include 'includes/header.php';?>
-<?php include 'class/classe.php';?>
+<?php include 'class/autoloader.php';?>
 <?php 
 //Variable temporaire
 $idprof = 1;
@@ -38,7 +38,7 @@ $lastname = 'Verquin';
             </table>
         </div>
         
-            <?php if(!isset($selectedClass)): ?>
+            <?php if(isset($selectedClass)): ?>
                 <div class="classNoSelect">
                     <h1>Selectionnez votre classe</h1>
                 </div>
@@ -47,6 +47,7 @@ $lastname = 'Verquin';
                 <div class="classSelect">
                     <h1>Classe : $classe a mettre</h1>
                     <?php
+                        include 'class/access.php';
                         $stmt = new Access();
                         $stmt->new_cnx();
                         $stmt->select_all('id_administrator', 'aston_administrator');
