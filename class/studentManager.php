@@ -11,13 +11,22 @@ include 'access.php';
 class studentManager
 {
 
-    public function select_one($fields,$clause){
+    /** Renvoie un etudiant selon parametres
+     * @param $fields
+     * @param $clause
+     * @return bool
+     */
+    public function select_one($fields, $clause){
         $access = new Access();
         $access->new_cnx();
         $table="student";
         return $access->select($fields,$table,$clause);
     }
 
+    /** Renvoie tout les etudiants
+     * @param $fields
+     * @return bool
+     */
     public function select_all($fields){
         $access = new Access();
         $access->new_cnx();
