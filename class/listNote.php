@@ -1,7 +1,5 @@
 <?php
-  include 'note.php';
-  include 'comment.php';
-  include 'student.php';
+require 'autoloader.php';
   //mod Thomas Aldeguer
 
   class listNote{

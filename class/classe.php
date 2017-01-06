@@ -1,11 +1,7 @@
 <?php
 
 /**mod Thomas Aldeguer**/
-
-  include 'student.php';
-  include 'teacher.php';
-  include 'comment.php';
-  include 'access.php';
+require 'autoloader.php';
 
   class Classe{
     private $_name ="";

@@ -1,5 +1,5 @@
 <?php
-  include "access.php";
+require 'autoloader.php';
 
 
   class Comment{

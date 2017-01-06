@@ -1,5 +1,5 @@
 <?php
-  include 'comment.php';
+require 'autoloader.php';
   class People{
     private $_firstname = "";
     private $_lastname ="";

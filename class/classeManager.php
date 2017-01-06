@@ -1,7 +1,5 @@
 <?php
-
-include 'access.php';
-include 'studentManager.php';
+require 'autoloader.php';
 
 /**
  * Created by PhpStorm.

@@ -1,5 +1,5 @@
 <?php
-  include 'student.php';
+require 'autoloader.php';
 
   class Admin extends People{
       public function addStudent($student){

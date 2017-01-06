@@ -1,6 +1,6 @@
 <?php
 
-include 'access.php';
+require 'autoloader.php';
 
 /**
  * Created by PhpStorm.

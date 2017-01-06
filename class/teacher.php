@@ -1,6 +1,5 @@
 <?php
-  include 'people.php';
-  include 'note.php';
+require 'autoloader.php';
   
   class Teacher extends People{
 

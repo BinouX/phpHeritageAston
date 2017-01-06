@@ -1,6 +1,6 @@
 <?php
 
-include 'people.php';
+require 'autoloader.php';
   class Student extends People {
     private $_classe = "";
 
