@@ -119,7 +119,7 @@
         $access->insert("aston_note",$field,$values);
 	}
 }
-    $note = new Note(10,1,1,"Correct");
+    /*$note = new Note(10,1,1,"Correct");
     print_r($note);
-    $note->addNoteBdd();
+    $note->addNoteBdd();*/
  ?>
