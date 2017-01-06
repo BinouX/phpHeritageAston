@@ -24,7 +24,7 @@ class Access
     /**
      * @var string
      */
-    private $dbname = "noteaston";
+    private $dbname = "aston";
 
     /**
      * @param $query
@@ -62,12 +62,13 @@ class Access
 
         try{
             $cnx = $this->new_cnx();
-            $q=$cnx->query($query);
-            return $q;
+            $q=$cnx->prepare($query);
+            $a=  $q->execute();
+            return $a->fetchAll();
         }catch(PDOException  $e ){
             echo "Error: ".$e;
         }
-      }
+    }
 
     function exec_query($query){
 
