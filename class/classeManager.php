@@ -25,7 +25,7 @@ class classeManager
         return $access->select($fields,$table,$clause);
     }
 
-    /** Renvoie tout les etudiants
+    /** Renvoie toutes les classes
      * @param $fields
      * @return bool
      */
@@ -36,7 +36,7 @@ class classeManager
         return $access->select_all($fields,$table);
     }
 
-    /** Insert un etudiant dans une classe
+    /** Insert une classe
      * @param $classe
      * @param string $com
      */
