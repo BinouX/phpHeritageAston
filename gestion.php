@@ -49,7 +49,7 @@ $lastname = 'Verquin';
                     <?php
                         include 'class/access.php';
                         $stmt = new Access();
-                        $stmt->new_cnx();
+                       
                         $stmt->select_all('id_administrator', 'aston_administrator');
                         echo '<pre>';
                         var_dump($stmt);
