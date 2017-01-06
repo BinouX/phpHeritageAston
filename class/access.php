@@ -73,6 +73,7 @@ class Access
 
         try{
             $cnx = $this->new_cnx();
+            printf("</br>".$query."</br>");
             $q=$cnx->prepare($query);
             return $q->execute();
         }catch(PDOException  $e ){
